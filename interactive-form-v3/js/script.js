@@ -29,14 +29,18 @@ titleJob.addEventListener('change', e => {
 });
 /*T-Shirt info section*/
 /*found code example at w3schools.com*/
+/*found code forattribute selector to return a list of items @developer.mozilla and stackoverflow.com.  */
 document.getElementById('color').disabled = true;
 const shirtColor = document.getElementById('color');
-const jsPuns = document.querySelecorAll('');
+const shirtDesign = document.getElementById('design');
+//const designJsPuns = shirtDesign.document.querySelectorAll("option[value='js pun']");
+const jsPuns = document.querySelectorAll('[data-theme="js puns"]');
+const heartJs = document.querySelectorAll('[data-theme="heart js"]');
 
 
-shirtColor.addEventListener('change', e => {
-  if (shirtColor.value ==='js puns') {
-    jsPuns.style.display = document.querySelecorAll('js puns');
+shirtDesign.addEventListener('change', e => {
+  if (shirtDesign.value ==='js puns') {
+    shirtColor.style.display ='block';
 
 
   }
