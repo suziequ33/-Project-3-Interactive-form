@@ -39,7 +39,5 @@ shirtColor.addEventListener('change', e => {
     jsPuns.style.display = document.querySelecorAll('js puns');
 
 
-
-
   }
 });
