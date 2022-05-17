@@ -28,20 +28,32 @@ titleJob.addEventListener('change', e => {
   }
 });
 /*T-Shirt info section*/
-/*found code example at w3schools.com*/
-/*found code forattribute selector to return a list of items @developer.mozilla and stackoverflow.com.  */
+/*found code example for disabled element at w3schools.com */
+/*took me awhile to get children elements for color but i found an exampleat developer.mozilla. */
+/* haad trubble with the funcion it kept saying cannot read properites value or removeAttributeis not a funciton. Relized i needed to more the getAttribute inot the funcion to work.
+/*Found that example developer.mozilla/<select.:The HTML Select element. this is where i found most of the code example for this funcion.  */
+/*the mozilla/select element is where i found and used setAttribute/removeAttribute*/
+/*console kept telling me that removeAttribute still wasnt doing what i needed it to unil i rememberd we used the [i] for referencesto a collection of elements children.
+notes DOM Scription my examble./filter invitess who have not responded.took a few trys to find where to put them. */
 document.getElementById('color').disabled = true;
 const shirtColor = document.getElementById('color');
 const shirtDesign = document.getElementById('design');
-//const designJsPuns = shirtDesign.document.querySelectorAll("option[value='js pun']");
-const jsPuns = document.querySelectorAll('[data-theme="js puns"]');
-const heartJs = document.querySelectorAll('[data-theme="heart js"]');
-
+const colorChildren = document.getElementById('color').children;
 
 shirtDesign.addEventListener('change', e => {
-  if (shirtDesign.value ==='js puns') {
-    shirtColor.style.display ='block';
+ shirtColor.disabled = false;
 
+ for (i = 0; i < colorChildren.length; i++){
+  const jsPuns = colorChildren[i].getAttribute('data-theme');
 
+  if (shirtDesign.value === jsPuns) {
+    colorChildren[i].hidden = false;
+    colorChildren[i].setAttribute('selected', '');
+
+ }else{
+    colorChildren[i].hidden= true;
+    colorChildren[i].removeAttribute('selected');
   }
+ }
 });
+/*Register for Activities*/
