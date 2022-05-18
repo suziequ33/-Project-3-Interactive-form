@@ -57,3 +57,21 @@ shirtDesign.addEventListener('change', e => {
  }
 });
 /*Register for Activities*/
+/**/
+const filedsetActivites = document.getElementById('activities');
+//const totalCost = document.getElementById('activities-cost');
+//const activityCost = document.getElementsByClassName('activity-cost');
+const activitiesChildren = document.getElementById('activities').children;
+
+
+filedsetActivites.addEventListener('change', e => {
+  const sumTotal = 0;
+  const totalCost = document.getElementById('activities-cost');
+  const activityCost = document.getElementsByClassName('activity-cost');
+  for (let i = 0; i < filedsetActivites.length; i++) {
+    if (activityCost[i].checked){
+      sumTotal += (activityCost[i].value * 1);
+    }
+    totalCost.innerHTML = sumTotal;
+  }
+});
