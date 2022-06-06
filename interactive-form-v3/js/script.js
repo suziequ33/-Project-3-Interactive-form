@@ -58,20 +58,85 @@ shirtDesign.addEventListener('change', e => {
 });
 /*Register for Activities*/
 /**/
-const filedsetActivites = document.getElementById('activities');
-//const totalCost = document.getElementById('activities-cost');
-//const activityCost = document.getElementsByClassName('activity-cost');
-const activitiesChildren = document.getElementById('activities').children;
 
 
-filedsetActivites.addEventListener('change', e => {
-  const sumTotal = 0;
-  const totalCost = document.getElementById('activities-cost');
-  const activityCost = document.getElementsByClassName('activity-cost');
-  for (let i = 0; i < filedsetActivites.length; i++) {
-    if (activityCost[i].checked){
-      sumTotal += (activityCost[i].value * 1);
+
+
+
+const activitiesFieldset = document.getElementById('activities');
+const activityBox = document.getElementById('activities-box');
+//let totalCost = document.getElementsByClassName('activities-cost').value;
+//const chkBox = document.querySelectorAll('input[type="checkbox"]:checked');
+//const chkBox = document.querySelectorAll('.checkbox');
+//let totalCost = document.getElementsByClassName('activities-cost');
+//const dataCost = document.querySelectorAll('data-cost');
+//let sumTotal = 0;
+//for (let i = 0; i < chkBox.length; i++){
+  activityBox.addEventListener('change', e => {
+//const chkInput = document.getElementsByTagName('input');
+//let label = activityBox.getElementsByTagName('label');
+ //const chkBox = document.querySelectorAll('input[type="checkbox"]:checked');
+//  const dataCost = document.getElementsByClassName('data-cost');
+//let dataCost = document.querySelectorAll('data-cost').innerText;
+//document.getElementById('activities-box').innerText = chkBox.value;
+///let inputElems = document.getElementsByTagName("input");
+let sumTotal = 0;
+//let array = [];
+//const sumValue = activityBox.querySelectorAll('div.item');
+const valueTotal = sumValue.length;
+for (let i = 0; i < valueTotal; i++) {
+  const chkBox = valueTotal[i];
+  const checkBox = chkBox.querySelectorAll('span.chosen');
+  const chekChild = checkBox.children[0];
+  if ( chekChild.checked) {
+    sumTotal += parseFloat(chekChild.dataset.price);
+// let chkBox = document.querySelectorAll('input[type="checkbox"]:checked');
+//let sumValue = document.getElementById(chkBox.getAttribute("data-cost"));
+//let val = chkBox.value;
+//val = (isNaN(val) || "" === val.trim()) ? 0 : parseFloat(val);
+//sumTotal += val;
+//let sumTotal = parseInt('dataCost').value;
+//let total = parseFloat(e.target.value);
+//dataCost = event.target;
+ //chkBox = event.target;
+ //const chkBox = event.target;
+//const checked = chkBox.checked;
+//let sumValue = chkBox.value;
+//onst formNodes = document.getElementsByTagName('input');
+
+//  const sumValue = parseInt(dataCost.value);
+//  for (let i = 0; i < chkBox.lemgth; i++){
+  //  let dataCost = label[i].getElementsByTagName('data-cost');
+  //  let totalCost = parseFloat(dataCost.innerText);
+  //  array.push(chkBox[i].value)
+  //console.log(e.target.dataset.cost);
+  //  for (element of dtaCost){
+  //if(chkBox.checked){
+//  if (e.target.tagName == "INPUT"){
+  //  const sumValue = parseFloat(e.target.value)
+    //if (checked) {
+    //  sumTotal += sumValue;
+    //    const sumValue = parseFloat(e.target.value)
+      //  sumTotal += sumValue;
+    //  if(chkInput.type == 'checkbox' && chkInput[i].checked == true) {
+        //sumTotal += totalCost;
+        //sumTotal = sumTotal +Number(price[0].dataset.price);
+    //document.body.append(chkBox.value);
+    //  sumTotal += checked[i].value + '';
+    //sumTotal.push(chkBox.value);
+    //  sumTotal +=  parseFloat(chkBox.getAttribute('cost'));
+  //  sumTotal = sumTotal +Number(price[0].dataset.price);
+  //  sumTotal.push(chkBox[i].value);
+    }else{
+      sumTotal -= parseFloat(chekChild.dataset.price);
+    //  sumTotal = sumTotal -Number(price[0].dataset.price);
+      //sumTotal -= totalCost;
+      //sumTotal -= parseFloat(chkBox.getAttribute('cost'));
+    //  sumTotal -= parseInt(chkBox.innerText);
+      //sumTotal = sumTotal -Number(ptice[0].dataset.price);
     }
-    totalCost.innerHTML = sumTotal;
-  }
+}
+document.getElementsByClassName('activities-cost').innerHTML = sumTotal.toFixed(2);
+//document.getElementsByClassName('activities-cost').innerHTML = "Total: $" + sumTotal.toFixed(2);
+console.log(sumTotal);
 });
